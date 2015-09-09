@@ -4,4 +4,13 @@
       %li.rdb-column{:class => column.compact? ? 'rdb-column-compact' : ''}
         %h3= column.title
         - if column.issues.count > 0
-          %span= t :rdb_x_issues, :count => column.issues.count
+          %div.rdb-column-info
+            %div.rdb-column-info-count
+              = t :rdb_x_issues, :count => column.issues.count
+            %div.rdb-column-info-time
+              %span{ :title => "Затраченное время" } 
+                - hours =  TimeEntry.where(issue_id: column.issues.pluck(:id)).pluck(:hours).delete_if { |h| h.blank? }.reduce(:+)
+                = hours.blank? ? "0.0" : hours.round(1)
+              %span{ :title => "Оценка времени" } 
+                - ehours = column.issues.pluck(:estimated_hours).delete_if { |eh| eh.blank? }.reduce(:+)
+                = ehours.blank? ? "0.0" : ehours.round(1)

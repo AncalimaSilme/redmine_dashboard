@@ -43,6 +43,45 @@
 }
 
 
+.rdb-headers .rdb-column .rdb-column-info {
+	margin: 0 10px;
+	float: right;
+}
+
+.rdb-headers .rdb-column .rdb-column-info span {
+	margin-left: 0;
+}
+
+.rdb-headers .rdb-column .rdb-column-info > [class*="rdb-column-info-"] {
+	display: block;
+}
+
+.rdb-headers .rdb-column .rdb-column-info > [class*="rdb-column-info-"],
+.rdb-headers .rdb-column .rdb-column-info > [class*="rdb-column-info-"] span {
+	font-size: 0.9em;
+	color: #999;
+}
+
+.rdb-headers .rdb-column .rdb-column-info .rdb-column-info-count {
+	padding-left: 14px;
+	background-image: url("img/cog.png");
+	background-position: left center;
+	background-repeat: no-repeat;
+}
+
+.rdb-headers .rdb-column .rdb-column-info .rdb-column-info-time {
+	padding-left: 14px;
+	background-image: url("img/time.png");
+	background-position: left center;
+	background-repeat: no-repeat;
+}
+
+.rdb-headers .rdb-column .rdb-column-info .rdb-column-info-time span:not(:first-child):before {
+	content: "/";
+	display: inline-block;
+	padding: 0 2px
+}
+
 .rdb-columns {
 	margin: 0;
 }
